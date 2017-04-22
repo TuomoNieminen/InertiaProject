@@ -6,7 +6,7 @@
 
 The Inertia Project is a project initialized by Michael Greenacre to study the inertia values of Correspondence Analysis (CA).
 
-## File outline
+## Repository outline
 
 - **data** Results of computations  
 - **miscellaneous** Script and information provided by Michael Greenacre  
