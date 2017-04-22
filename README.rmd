@@ -4,9 +4,11 @@
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Inertia Project
+# Inertia Project  
 
-## file outline
+The Inertia Project is a project initialized by Michael Greenacre to study the inertia values of Correspondence Analysis (CA).
+
+## File outline
 
 **data**
 Results of computations
@@ -21,6 +23,8 @@ Functions to compute inertia summaries for rectangular frequency tables.
 Plotting functions to study the results of computations
 
 ## Preliminary results  
+
+These are very crude drafts.  
 
 ```{r}
 # The commeted lines can be run to compute the results
