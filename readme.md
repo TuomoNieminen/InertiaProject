@@ -74,7 +74,7 @@ plot_inertias(sq_first, sq_total, r = 1/3)
 
 ```r
 first <- inertias$first
-contour(first, main = "Count plot of first inertias of rectangular tables", sub = paste(colnames(first), collapse = " "))
+contour(first, main = "Countour plot of first inertias of rectangular tables", sub = paste(colnames(first), collapse = " "))
 ```
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
