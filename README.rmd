@@ -10,17 +10,10 @@ The Inertia Project is a project initialized by Michael Greenacre to study the i
 
 ## File outline
 
-**data**
-Results of computations
-
-**miscellaneous**  
-Script and information provided by Michael Greenacre
-
-**compute_inertias.R** 
-Functions to compute inertia summaries for rectangular frequency tables.
-
-**plotting.R**  
-Plotting functions to study the results of computations
+ **data** Results of computations
+**miscellaneous** Script and information provided by Michael Greenacre
+**compute_inertias.R** Functions to compute inertia summaries for rectangular frequency tables.
+**plotting.R** Plotting functions to study the results of computations
 
 ## Preliminary results  
 
