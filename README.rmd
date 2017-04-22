@@ -25,8 +25,8 @@ source("plotting.R")
 source("compute_inertias.R")
 # categories <- c(3:9, seq(10, 90, 10), seq(100, 1000, 100))
 # inertias <- compute_inertias(categories)
-# save(file = "inertias.Rda", inertias)
-inertias <- get(load("inertias.Rda"))
+# save(file = "data/inertias.Rda", inertias)
+inertias <- get(load("data/inertias.Rda"))
 ```
 
 Inertia values were computed for rectangular tables of sizes `r colnames(inertias$first)`.

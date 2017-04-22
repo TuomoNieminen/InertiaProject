@@ -24,17 +24,8 @@ source("plotting.R")
 source("compute_inertias.R")
 # categories <- c(3:9, seq(10, 90, 10), seq(100, 1000, 100))
 # inertias <- compute_inertias(categories)
-# save(file = "inertias.Rda", inertias)
-inertias <- get(load("inertias.Rda"))
-```
-
-```
-## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
-## 'inertias.Rda', probable reason 'No such file or directory'
-```
-
-```
-## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
+# save(file = "data/inertias.Rda", inertias)
+inertias <- get(load("data/inertias.Rda"))
 ```
 
 Inertia values were computed for rectangular tables of sizes 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000.
