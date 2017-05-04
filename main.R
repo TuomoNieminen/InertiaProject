@@ -77,7 +77,7 @@ rm(list = ls())
 load("data/power_results.Rdata")
 # print the results
 summaries
-# look at the matricrs
+# look at the matrices
 str(matrices)
 # get a matrix
 M1<- matrices[[1]]
