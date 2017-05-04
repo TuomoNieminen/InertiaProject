@@ -12,29 +12,19 @@ The Inertia Project is a project initialized by Michael Greenacre to study the i
 - **miscellaneous** Script and information provided by Michael Greenacre  
 - **compute_inertias.R** Functions to compute inertia summaries for rectangular frequency tables  
 - **plotting.R** Plotting functions to study the results of computations  
+- **main.R** a script for computations
+
+Please see the main script for how to compute the results.
 
 ## (Very) preliminary results  
 
 These are very crude drafts.  
 
 
-```r
-# The commeted lines can be run to compute the results
-source("plotting.R")
-source("compute_inertias.R")
-# categories <- c(3:9, seq(10, 90, 10), seq(100, 1000, 100))
-# inertias <- compute_inertias(categories)
-# save(file = "data/inertias.Rda", inertias)
-inertias <- get(load("data/inertias.Rda"))
-```
 
 Inertia values were computed for rectangular tables of sizes 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000.
 The results are in a list of matrices.
 
-
-```r
-str(inertias)
-```
 
 ```
 ## List of 4
@@ -60,22 +50,9 @@ str(inertias)
 
 The diagonals of the result matrices correspond to results from square tables.
 
-
-```r
-sq_first <- diag(inertias$first) # first eigenvalues
-sq_total <- diag(inertias$others) + sq_first # sum of eigenvalues
-plot_inertias(sq_first, sq_total, r = 1/3)
-```
-
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 ### Contour plot of first inertias of rectangular tables
-
-
-```r
-first <- inertias$first
-contour(first, main = "Countour plot of first inertias of rectangular tables", sub = paste(colnames(first), collapse = " "))
-```
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
