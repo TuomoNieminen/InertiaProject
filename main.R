@@ -59,13 +59,16 @@ for(power in 10:1) {
 P <- compute_binorm_table(2, 2, corr=matrix(c(1,-1/3, -1/3, 1), ncol = 2))
 M;P # ok!
 
-# print out the summaries
-rownames(summaries) <- 11:1
+# reverse order of results
+summaries <- summaries[nrow(summaries):1, ]
+matrices <- matrices[length(matrices):1]
+
+#print out the summaries
 summaries
 
 # save results
 power_results <- list(summaries = summaries, matrices = matrices)
 save(file = "data/power_results.Rda", power_results)
 
-load("data/power_results.Rda")
-str(power_results)
+# load("data/power_results.Rda")
+# str(power_results)
