@@ -69,16 +69,17 @@ summaries
 # save results
 save(file = "data/power_results.Rdata", summaries, matrices)
 
+##############################
+# Instructions for power_results.Rdata usage
+##############################
 # load data
 rm(list = ls())
 load("data/power_results.Rdata")
-
 # print the results
 summaries
-
 # look at the matricrs
 str(matrices)
-
 # get a matrix
 M1<- matrices[[1]]
 M11 <- matrices[[11]]
+##############################
