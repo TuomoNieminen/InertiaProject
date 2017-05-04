@@ -67,8 +67,18 @@ matrices <- matrices[length(matrices):1]
 summaries
 
 # save results
-power_results <- list(summaries = summaries, matrices = matrices)
-save(file = "data/power_results.Rda", power_results)
+save(file = "data/power_results.Rdata", summaries, matrices)
 
-# load("data/power_results.Rda")
-# str(power_results)
+# load data
+rm(list = ls())
+load("data/power_results.Rdata")
+
+# print the results
+summaries
+
+# look at the matricrs
+str(matrices)
+
+# get a matrix
+M1<- matrices[[1]]
+M11 <- matrices[[11]]
