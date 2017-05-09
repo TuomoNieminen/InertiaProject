@@ -33,53 +33,52 @@ contour(first, main = "Countour plot of first inertias of rectangular tables", s
 # --------------
 ########################################
 
-# Compute results and save
-# -----------------------
+# Compute the 2048 x 2048 table
 source("compute_inertias.R")
 # size <- 2^11
 # M <- compute_binorm_table(rowcat = size, colcat = size, corr = matrix(c(1, -1/3, -1/3, 1), ncol = 2))
 # save(file = "data/2048Matrix.Rda", M)
 
-# get a 2048 x 2048 frequency matrix (2^11)
+# load the 2048 x 2048 frequency matrix (2^11)
 M <- get(load("data/2048Matrix.Rda"))
 
-# compute ca summaries for the power 11 table
-summaries <- compute_ca_summaries(M)
-matrices <- list(M)
+# repeadetly collapse the table and compute all rectangular tables (for powers 11:1)
+# and their inertia summaries
+summaries <- data.frame()
+matrices <- list()
 
-# repeadetly collapse the table and compute summaries for powers 10:1
-for(power in 10:1) {
+for(p1 in 11:1) {
+  m <- M
+  for(p2 in p1:1) {
+    cat("Computing summaries for table ", dim(m), "\n")
+    matrices <- append(matrices, list(m))
+    summaries <- rbind(summaries, compute_ca_summaries(m))
+    m <- collapse_table(m, by = "col")
+  }
+  if(p1 == 1) break
   M <- collapse_table(M, by = "row")
   M <- collapse_table(M, by = "col")
-  matrices <- append(matrices, list(M))
-  summaries <- rbind(summaries, compute_ca_summaries(M))
 }
 
 # check that the last table is as it should
 P <- compute_binorm_table(2, 2, corr=matrix(c(1,-1/3, -1/3, 1), ncol = 2))
 M;P # ok!
 
-# reverse order of results
-summaries <- summaries[nrow(summaries):1, ]
-matrices <- matrices[length(matrices):1]
-
-#print out the summaries
-summaries
+# set names
+dims <-  unlist(sapply(11:1, function(p) paste0(2**p,"x", 2**(p:1))))
+rownames(summaries) <- dims
+matrices <- setNames(matrices, dims)
 
 # save results
-save(file = "data/power_results.Rdata", summaries, matrices)
+save(file = "data/power_results2.Rdata", summaries, matrices)
 
 ##############################
-# Instructions for power_results.Rdata usage
+# Instructions for power_results2.Rdata usage
 ##############################
 # load data
 rm(list = ls())
-load("data/power_results.Rdata")
-# print the results
-summaries
-# look at the matrices
+load("data/power_results2.Rdata")
+dimnames(summaries)
 str(matrices)
-# get a matrix
-M1<- matrices[[1]]
-M11 <- matrices[[11]]
+M <- matrices[["8x4"]]
 ##############################
